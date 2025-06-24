@@ -13,7 +13,7 @@ export const validateExclusiveRole = async (req, res, next) => {
       return res.status(400).json({ error: 'Esta persona ya está registrada como votante, no puede ser candidato.' });
     }
 
-    if (asCandidate.length > 0 && req.originalUrl.includes('/voters')) {
+    if (asCandidate.length > 0 && req.originalUrl.includes('/voter')) {
       return res.status(400).json({ error: 'Esta persona ya está registrada como candidato, no puede ser votante.' });
     }
 

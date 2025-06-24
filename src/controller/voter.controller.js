@@ -32,7 +32,7 @@ export const postVoter = async (req, res) => {
     const { name, email } = req.body;
     const [existing] = await pool.query('SELECT * FROM voter WHERE email = ?', [email]);
     if (existing.length > 0) return res.status(400).json({ error: 'Email ya registrado' });
-    await pool.query('INSERT INTO voter (name, email) VALUES (?, ?)', [name, email]);
+    await pool.query('INSERT INTO voter (name, email) VALUES (?, ?)', [name, email || null]);
     res.status(201).json({ message: 'Votante registrado' });
   } catch (err) {
     res.status(500).json({ error: err.message });
