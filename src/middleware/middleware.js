@@ -24,3 +24,7 @@ export const validateExclusiveRole = async (req, res, next) => {
   }
 };
 export default validateExclusiveRole;
+
+
+/*EL middleware toma como parametro para diferenciar al votante del candidato el campo del nombre debido a que es el campo comun entre
+  ambos tablas*/
